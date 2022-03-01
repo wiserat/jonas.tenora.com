@@ -40,10 +40,8 @@ async function poNacteni() {
   console.log(d.getDate());
   console.log(d.getMonth()+1);
   console.log(d.getFullYear());
-  //let m = d.getMonth()+1; //cislo mesice
-  let m = MESICE[d.getMonth()]; //nazev mesice
+  let m = MESICE[d.getMonth()]; 
 
-  //volani vzdalene sluzby
   let url = "https://nodejs-3260.rostiapp.cz/date";
   let response = await fetch(url);
   let data = await response.json();
@@ -56,11 +54,10 @@ async function poNacteni() {
 }
 
 async function ukazPocasi() {
-  let url = "https://nodejs-3260.rostiapp.cz/weather?loc=Praha"; //s parametry
+  let url = "https://nodejs-3260.rostiapp.cz/weather?loc=Praha"; 
   let response = await fetch(url);
   let data = await response.json();
   console.log(data);
-  //TODO zpracování datového objektu; napr. pouziti data.svatek
 
   let s = "V Praze je <img src=\"" + data.icon + "\" height=\"24\">" + data.temp + " stupňů Celsia a slunce zapadá v " + data.sunset + ".";
   console.log(s);
@@ -96,8 +93,6 @@ function vypocet() {
    }
 
 
-
-
    const MESICE = ["ledna","února","března","dubna","května","června","července","srpna","září","října","listopadu","prosince"];
 const DNY = ["Neděle","Pondělí","Uterý","Středa","Čtvrtek","Pátek","Sobota"];
 
@@ -111,10 +106,8 @@ async function poNacteni() {
   console.log(d.getDate());
   console.log(d.getMonth()+1);
   console.log(d.getFullYear());
-  //let m = d.getMonth()+1; //cislo mesice
-  let m = MESICE[d.getMonth()]; //nazev mesice
+  let m = MESICE[d.getMonth()]; 
 
-  //volani vzdalene sluzby
   let url = "https://nodejs-3260.rostiapp.cz/date";
   let response = await fetch(url);
   let data = await response.json();
@@ -127,11 +120,10 @@ async function poNacteni() {
 }
 
 async function ukazPocasi() {
-  let url = "https://nodejs-3260.rostiapp.cz/weather?loc=Praha"; //s parametry
+  let url = "https://nodejs-3260.rostiapp.cz/weather?loc=Praha"; 
   let response = await fetch(url);
   let data = await response.json();
   console.log(data);
-  //TODO zpracování datového objektu; napr. pouziti data.svatek
 
   let s = "V Praze je <img src=\"" + data.icon + "\" height=\"24\">" + data.temp + " stupňů Celsia a slunce zapadá v " + data.sunset + ".";
   console.log(s);
@@ -183,7 +175,6 @@ function novaHra() {
   inicializujHrace(hrac2, cnv.width - 2*SIRKA_HRACE, "green");
   aktualizujStav();
 
-  //mic
   mic = {};
   mic.barva = "blue";
   novyMic();
@@ -205,7 +196,6 @@ function nakresliMic() {
   mic.x += mic.vx;
   mic.y += mic.vy;
   
-  //kontrola odrazu od hracu a vodorovnych sten
   if (mic.x - POLOMER_MICE <= hrac1.x + SIRKA_HRACE/2 && mic.y >= hrac1.y && mic.y <= hrac1.y + VYSKA_HRACE) {
     mic.vx = -mic.vx;
   }
@@ -215,7 +205,6 @@ function nakresliMic() {
   if (mic.y <= POLOMER_MICE || mic.y >= cnv.height - POLOMER_MICE) {
     mic.vy = -mic.vy;
   }
-  //zapocitani bodu, aktualizujStav(), novyMic()
   if (mic.x < 0) {
     hrac2.body++;
     aktualizujStav();
@@ -227,7 +216,6 @@ function nakresliMic() {
     novyMic();
   }
 
-  //nakresleni mice
   ctx.beginPath();
   ctx.fillStyle = mic.barva;
   ctx.arc(mic.x, mic.y, POLOMER_MICE, 0, 2*Math.PI);
