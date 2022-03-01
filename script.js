@@ -1,136 +1,28 @@
 function vypocet() {
-    let c1 = document.getElementById("cislo1").valueAsNumber;
-    let c2 = document.getElementById("cislo2").valueAsNumber;
-    let op = document.getElementById("operace").value;
-    let zaokrouhlit = document.getElementById("zaokrouhlit").checked;
-    console.log(zaokrouhlit);
-    let vysl = "???";
-     if (op == "scitani") {
-       vysl = c1 + c2;
-     }
-     if (op == "odcitani") {
-       vysl = c1 - c2;
-     }
-     
-     if (op == "nasobeni") {
-       vysl = c1 * c2;
-     }
-     if (op == "deleni") {
-       vysl = c1 / c2;
-     }
-     if (zaokrouhlit) {
-       vysl = vysl.toFixed(2);
-     }
-    document.getElementById("vystup").innerText = vysl;
+  let c1 = document.getElementById("cislo1").valueAsNumber;
+  let c2 = document.getElementById("cislo2").valueAsNumber;
+  let op = document.getElementById("operace").value;
+  let zaokrouhlit = document.getElementById("zaokrouhlit").checked;
+  console.log(zaokrouhlit);
+  let vysl = "???";
+   if (op == "scitani") {
+     vysl = c1 + c2;
    }
-
-
-
-
-   const MESICE = ["ledna","února","března","dubna","května","června","července","srpna","září","října","listopadu","prosince"];
-const DNY = ["Neděle","Pondělí","Uterý","Středa","Čtvrtek","Pátek","Sobota"];
-
-async function poNacteni() {
-  ukazPocasi();
-  ukazCitac();
-
-  console.log(MESICE[11]);
-
-  let d = new Date();
-  console.log(d.getDate());
-  console.log(d.getMonth()+1);
-  console.log(d.getFullYear());
-  let m = MESICE[d.getMonth()]; 
-
-  let url = "https://nodejs-3260.rostiapp.cz/date";
-  let response = await fetch(url);
-  let data = await response.json();
-  console.log(data);
-  console.log("### " + data.svatek);
-
-
-  let s = "Dnes je " + DNY[d.getDay()].toLowerCase() + " " + d.getDate() + "." + m + " " + d.getFullYear() + " a svátek má " + data.svatek + ".";
-  document.getElementById("datum").innerHTML = s;
-}
-
-async function ukazPocasi() {
-  let url = "https://nodejs-3260.rostiapp.cz/weather?loc=Praha"; 
-  let response = await fetch(url);
-  let data = await response.json();
-  console.log(data);
-
-  let s = "V Praze je <img src=\"" + data.icon + "\" height=\"24\">" + data.temp + " stupňů Celsia a slunce zapadá v " + data.sunset + ".";
-  console.log(s);
-  document.getElementById("pocasi").innerHTML = s;
-
-  document.getElementById("obrazek_pocasi").src = data.icon;
-} 
-
-function vypocet() {
-    let c1 = document.getElementById("cislo1").valueAsNumber;
-    let c2 = document.getElementById("cislo2").valueAsNumber;
-    let op = document.getElementById("operace").value;
-    let zaokrouhlit = document.getElementById("zaokrouhlit").checked;
-    console.log(zaokrouhlit);
-    let vysl = "???";
-     if (op == "scitani") {
-       vysl = c1 + c2;
-     }
-     if (op == "odcitani") {
-       vysl = c1 - c2;
-     }
-     
-     if (op == "nasobeni") {
-       vysl = c1 * c2;
-     }
-     if (op == "deleni") {
-       vysl = c1 / c2;
-     }
-     if (zaokrouhlit) {
-       vysl = vysl.toFixed(2);
-     }
-    document.getElementById("vystup").innerText = vysl;
+   if (op == "odcitani") {
+     vysl = c1 - c2;
    }
-
-
-   const MESICE = ["ledna","února","března","dubna","května","června","července","srpna","září","října","listopadu","prosince"];
-const DNY = ["Neděle","Pondělí","Uterý","Středa","Čtvrtek","Pátek","Sobota"];
-
-async function poNacteni() {
-  ukazPocasi();
-  ukazCitac();
-
-  console.log(MESICE[11]);
-
-  let d = new Date();
-  console.log(d.getDate());
-  console.log(d.getMonth()+1);
-  console.log(d.getFullYear());
-  let m = MESICE[d.getMonth()]; 
-
-  let url = "https://nodejs-3260.rostiapp.cz/date";
-  let response = await fetch(url);
-  let data = await response.json();
-  console.log(data);
-  console.log("### " + data.svatek);
-
-
-  let s = "Dnes je " + DNY[d.getDay()].toLowerCase() + " " + d.getDate() + "." + m + " " + d.getFullYear() + " a svátek má " + data.svatek + ".";
-  document.getElementById("datum").innerHTML = s;
+   
+   if (op == "nasobeni") {
+     vysl = c1 * c2;
+   }
+   if (op == "deleni") {
+     vysl = c1 / c2;
+   }
+   if (zaokrouhlit) {
+     vysl = vysl.toFixed(2);
+   }
+  document.getElementById("vystup").innerText = vysl;
 }
-
-async function ukazPocasi() {
-  let url = "https://nodejs-3260.rostiapp.cz/weather?loc=Praha"; 
-  let response = await fetch(url);
-  let data = await response.json();
-  console.log(data);
-
-  let s = "V Praze je <img src=\"" + data.icon + "\" height=\"24\">" + data.temp + " stupňů Celsia a slunce zapadá v " + data.sunset + ".";
-  console.log(s);
-  document.getElementById("pocasi").innerHTML = s;
-
-  document.getElementById("obrazek_pocasi").src = data.icon;
-} 
 
 
 const SIRKA_HRACE = 16;
@@ -155,10 +47,9 @@ function novyMic() {
   mic.x = cnv.width / 2;
   mic.y = cnv.height / 2;
   while (true) {
-    mic.vx = Math.random()*7-6;
-    mic.vy = Math.random()*7-6;
-    if (Math.abs(mic.vx)>3) break;
-    if (Math.abs(mic.vx)<4) break;
+    mic.vx = Math.random()*6-3;
+    mic.vy = Math.random()*6-3;
+    if (mic.vx != 0) break;
   }
 }  
 function inicializujHrace(hrac, x, barva) {
@@ -175,6 +66,7 @@ function novaHra() {
   inicializujHrace(hrac2, cnv.width - 2*SIRKA_HRACE, "green");
   aktualizujStav();
 
+  //mic
   mic = {};
   mic.barva = "blue";
   novyMic();
@@ -196,6 +88,7 @@ function nakresliMic() {
   mic.x += mic.vx;
   mic.y += mic.vy;
   
+  //kontrola odrazu od hracu a vodorovnych sten
   if (mic.x - POLOMER_MICE <= hrac1.x + SIRKA_HRACE/2 && mic.y >= hrac1.y && mic.y <= hrac1.y + VYSKA_HRACE) {
     mic.vx = -mic.vx;
   }
@@ -205,6 +98,7 @@ function nakresliMic() {
   if (mic.y <= POLOMER_MICE || mic.y >= cnv.height - POLOMER_MICE) {
     mic.vy = -mic.vy;
   }
+  //zapocitani bodu, aktualizujStav(), novyMic()
   if (mic.x < 0) {
     hrac2.body++;
     aktualizujStav();
@@ -216,6 +110,7 @@ function nakresliMic() {
     novyMic();
   }
 
+  //nakresleni mice
   ctx.beginPath();
   ctx.fillStyle = mic.barva;
   ctx.arc(mic.x, mic.y, POLOMER_MICE, 0, 2*Math.PI);
