@@ -1,3 +1,45 @@
+.numero {
+    background-color: lightsteelblue;
+    border-color: blue;
+    height: 3em;
+    width: 10em;
+    border-radius: 5px;
+}
+
+.operatione {
+    background-color: lightsteelblue;
+    border-color: blue;
+    height: 1.5em;
+    width: 2.5em;
+    border-radius: 5px;
+}
+
+.ratatata {
+    border-color: blue;
+    width: 2.5em;
+    size: 3em;
+    height: 1.5em;
+    border-radius: 5px;
+}
+
+.textonzio {
+    color: white;
+    font-size: 1.3em;
+    font-family: 'quick sand',sans-serif;
+}
+
+.textonzian {
+    border-color: blue;
+    width: 2.5em;
+    size: 3em;
+    height: 1.5em;
+    border-radius: 5px;
+    padding: 1.2em;
+    color: white;
+    font-size: 2.3em;
+    font-family: 'quick sand',sans-serif;
+}
+
 body{
     margin: 0;
     padding: 0;
